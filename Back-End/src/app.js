@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { MongoClient, ObjectId } from "mongodb";
 import dotenv from "dotenv";
 import joi from "joi";
@@ -26,6 +27,7 @@ try {
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const nameSchema = joi.object({
   name: joi.string().required(),
